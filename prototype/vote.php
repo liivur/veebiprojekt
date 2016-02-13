@@ -5,7 +5,7 @@
   	</head>
   	<body>
 	  	<header class="container header">
-	  		<?php require './components/header.php'; ?>
+	  		<?php require './components/admin-header.php'; ?>
 		</header>
 		
 		
