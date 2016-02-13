@@ -7,6 +7,8 @@
 	  	<header class="container header">
 	  		<?php require 'header.php'; ?>
 		</header>
+		
+		
 		<section class="content container">
 	    	<div class="row">
 	    		<div class="col-md-4">
