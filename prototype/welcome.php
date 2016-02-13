@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   	<head>
-    	<?php require 'head.php'; ?>
+    	<?php require './components/head.php'; ?>
   	</head>
   	<body>
 	  	<header class="container header">
-	  		<?php require 'header.php'; ?>
+	  		<?php require './components/header.php'; ?>
 		</header>
 		
 		<section class="content container">
@@ -20,6 +20,6 @@
 		
 		</section>
 
-	    <?php require 'javascripts.php'; ?>
+	    <?php require './components/javascripts.php'; ?>
   	</body>
 </html>
