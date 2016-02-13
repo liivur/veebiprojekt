@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-4">
-		<a href="./index.php"><h1>E-HÄÄLETUS</h1></a>
+		<a href="./welcome.php"><h1>E-HÄÄLETUS</h1></a>
 	</div>
 	<div class="col-md-8 menu-container">
 		<ul class="menu list-unstyled">
