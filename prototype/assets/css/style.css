@@ -1,0 +1,51 @@
+/* resets */
+
+ul, ol {
+	margin: 0;
+}
+
+a {
+	color: inherit;
+}
+
+.container {
+	background-color: #E8E8E8;
+}
+
+.header.container {
+	background-color: #C5CDDA;
+}
+
+.content {
+	margin-top: 20px;
+}
+
+.menu {
+	text-align: right;
+	height: 69px;
+	line-height: 69px;
+}
+
+.menu .menu-item {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.menu .menu-item a {
+	display: block;
+	padding: 0 10px;
+}
+
+.menu .login-item {
+	position: relative;
+}
+
+.menu .login-form {
+	right: -15px;
+	margin-top: -1px;
+	padding: 10px;
+	background-color: #EFEBEB;
+	position: absolute;
+	line-height: 20px;
+	text-align: left;
+}
