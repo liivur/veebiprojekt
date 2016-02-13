@@ -61,3 +61,7 @@ form {
 .fb-login-button{
 	margin: 10px;
 }
+
+.admin-forms form {
+	padding: 10px;
+}
