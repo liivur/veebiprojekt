@@ -1,11 +1,19 @@
 /* resets */
 
-ul, ol {
+ul, ol, label {
 	margin: 0;
+}
+
+label {
+	font-weight: normal;
 }
 
 a {
 	color: inherit;
+}
+
+form {
+	line-height: 100%;
 }
 
 .container {

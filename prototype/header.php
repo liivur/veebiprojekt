@@ -4,7 +4,15 @@
 	</div>
 	<div class="col-md-8 menu-container">
 		<ul class="menu list-unstyled">
-			<li class="menu-item"><a href="./search.php">Otsing</a></li>
+			<li class="menu-item">
+				<form action="./search.php" class="search-form">
+					<label>
+						Otsi:
+						<input type="text" name="q">
+					</label>
+					<button type="submit">Otsi</button>
+				</form>
+			</li>
 			<li class="menu-item"><a href="./candidates.php">Kandidaadid</a></li>
 			<li class="menu-item"><a href="./statistics.php">Statistika</a></li>
 			<li class="menu-item login-item">
@@ -12,12 +20,13 @@
 				<form class="login-form js-login-form hidden">
 					<label>
 						Nimi:
-						<input type="text">
+						<input type="text" name="user">
 					</label>
 					<label>
 						Parool:
-						<input type="password">
+						<input type="password" name="password">
 					</label>
+					<button type="submit">Logi sisse</button>
 				</form>
 			</li>
 		</ul>
