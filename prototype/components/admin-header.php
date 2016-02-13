@@ -13,7 +13,7 @@
 					<button type="submit">Otsi</button>
 				</form>
 			</li>
-			<li class="menu-item"><a href="./admin.php">Hääleta</a></li>
+			<li class="menu-item"><a href="./vote.php">Hääleta</a></li>
 			<li class="menu-item"><a href="./candidates.php">Kandidaadid</a></li>
 			<li class="menu-item"><a href="./statistics.php">Statistika</a></li>
 			<li class="menu-item"><a href="./admin.php">Systeemi haldus</a></li>
