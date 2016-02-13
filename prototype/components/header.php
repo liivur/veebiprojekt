@@ -17,7 +17,7 @@
 			<li class="menu-item"><a href="./statistics.php">Statistika</a></li>
 			<li class="menu-item login-item">
 				<a href="#" class="js-login-btn">Logi sisse</a>
-				<form class="login-form js-login-form hidden">
+				<form action="./admin.php" class="login-form js-login-form hidden">
 					<label>
 						Nimi:
 						<input type="text" name="user">
@@ -27,6 +27,8 @@
 						<input type="password" name="password">
 					</label>
 					<button type="submit">Logi sisse</button>
+					<div class="fb-login-button" data-max-rows="1" data-size="large" 
+						data-show-faces="false" data-auto-logout-link="true"></div>
 				</form>
 			</li>
 		</ul>

@@ -56,4 +56,8 @@ form {
 	position: absolute;
 	line-height: 20px;
 	text-align: left;
+	z-index: 1;
+}
+.fb-login-button{
+	margin: 10px;
 }
