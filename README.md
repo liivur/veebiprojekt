@@ -1,4 +1,6 @@
 # veebiprojekt
+Rühma liikmed: Sander Sats, Kadri Moks, Martin Salus
+
 Otsustasime projektiks valida E-hääletuse.
 Prototüübiks tegime html-mockupi. Mockupis on piiratud navigeerimisvõimalused. Peamistesse vaadetesse liikumine käib läbi menüü.
 Mockup asub http://web.zone.ee/veebiprojekt/
