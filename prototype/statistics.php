@@ -7,8 +7,9 @@
 	  	<header class="container header">
 	  		<?php require './components/header.php'; ?>
 		</header>
-		<section class="content container">
-	    	<h1>Statistika</h1>
+		<section class="content container" id="field">
+	    	<h1 class="middle">Statistika</h1>
+			<hr>
 	    	<div class="row text-center">
 	    		<div class="col-md-3">
 	    			<h3>Hääled riigis</h3>

@@ -12,20 +12,40 @@ a {
 	color: inherit;
 }
 
+a:hover {
+	text-decoration: none;
+}
+
 form {
 	line-height: 100%;
 }
 
-.container {
+body{
 	background-color: #E8E8E8;
 }
 
+.middle{
+    text-align: center;
+}
+
+.button{
+    margin-top: 10px;
+	margin-right: 40px;
+}
+
+.container {
+	background-color: #ffffff;
+}
+
 .header.container {
-	background-color: #C5CDDA;
+	background-color: #A9C5EB;
+	box-shadow: 1px 3px 2px #888888;
 }
 
 .content {
 	margin-top: 20px;
+	min-height: 500px;
+	margin-bottom: 20px;
 }
 
 .menu {
@@ -52,14 +72,19 @@ form {
 	right: -15px;
 	margin-top: -1px;
 	padding: 10px;
-	background-color: #EFEBEB;
+	background-color: #E0EAF8;
 	position: absolute;
 	line-height: 20px;
 	text-align: left;
 	z-index: 1;
+	box-shadow: 0px 3px 3px #888888;
 }
 .fb-login-button{
-	margin: 10px;
+	margin-top: 10px;
+}
+
+#field{
+	padding: 20px;
 }
 
 .admin-forms form {

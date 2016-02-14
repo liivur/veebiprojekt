@@ -26,7 +26,7 @@
 						Parool:
 						<input type="password" name="password">
 					</label>
-					<button type="submit">Logi sisse</button>
+					<button class="button" type="submit">Logi sisse</button>
 					<div class="fb-login-button" data-max-rows="1" data-size="large" 
 						data-show-faces="false" data-auto-logout-link="true"></div>
 				</form>

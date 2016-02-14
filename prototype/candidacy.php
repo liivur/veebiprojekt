@@ -10,7 +10,7 @@
 		
 		
 		<section class="content container">
-	    	<div class="row">
+	    	<div class="row"  id="field">
 				<p>Käesolevaga nõustun, et ...</p>
 					<p>vali piirkond</p>
 						<select name="party">

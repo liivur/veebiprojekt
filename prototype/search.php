@@ -28,6 +28,7 @@
 					</label>
 				</div>
     		</form>
+			<hr>
     		<h3>Tulemused:</h3>
     		<div>
     			<div>
