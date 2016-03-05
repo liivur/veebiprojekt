@@ -2,6 +2,9 @@
 
 $params = require(__DIR__ . '/params.php');
 
+use \yii\web\Request;
+$baseUrl = str_replace('/app/web', '', (new Request)->getBaseUrl());
+
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
@@ -10,6 +13,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'XedPHVbpkwTqvTN41ntc8DAHq6BYIjfP',
+            'baseUrl' => $baseUrl,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
