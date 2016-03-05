@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2016 at 03:06 PM
+-- Generation Time: Mar 05, 2016 at 07:59 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `veebirojekt`
+-- Database: `veebiprojekt`
 --
 
 -- --------------------------------------------------------
@@ -28,10 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `erakonnad` (
   `erak_id` int(11) NOT NULL,
-  `erak_nimi` varchar(100) NOT NULL,
-  PRIMARY KEY (`erak_id`),
-  UNIQUE KEY `erak_id` (`erak_id`),
-  KEY `erak_id_2` (`erak_id`)
+  `erak_nimi` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -49,17 +46,12 @@ INSERT INTO `erakonnad` (`erak_id`, `erak_nimi`) VALUES
 
 CREATE TABLE IF NOT EXISTS `inimesed` (
   `in_id` int(2) NOT NULL,
-  `nimi` varchar(23) NOT NULL,
+  `nimi` varchar(100) NOT NULL,
   `erakond` varchar(1) DEFAULT NULL,
   `maakond` int(2) NOT NULL,
-  `on valinud` int(1) NOT NULL,
+  `on_valinud` int(1) NOT NULL,
   PRIMARY KEY (`in_id`),
-  UNIQUE KEY `in_id_2` (`in_id`),
-  KEY `COL 4` (`maakond`),
-  KEY `COL 5` (`on valinud`),
-  KEY `COL 1` (`in_id`),
-  KEY `in_id` (`in_id`),
-  KEY `on valinud` (`on valinud`),
+  UNIQUE KEY `in_id` (`in_id`),
   KEY `maakond` (`maakond`),
   KEY `erakond` (`erakond`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -68,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `inimesed` (
 -- Dumping data for table `inimesed`
 --
 
-INSERT INTO `inimesed` (`in_id`, `nimi`, `erakond`, `maakond`, `on valinud`) VALUES
-(1, 'ELINA AAB', '1', 1, 0),
+INSERT INTO `inimesed` (`in_id`, `nimi`, `erakond`, `maakond`, `on_valinud`) VALUES
+(1, 'ELINA AAB', '1', 1, 1),
 (3, 'RAIVO AAB', '1', 3, 0),
 (4, '?LLE AADUSSOO', '1', 4, 0),
 (5, 'EDGAR AAL', '1', 5, 0),
@@ -163,6 +155,32 @@ INSERT INTO `inimesed` (`in_id`, `nimi`, `erakond`, `maakond`, `on valinud`) VAL
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kandidaadid`
+--
+
+CREATE TABLE IF NOT EXISTS `kandidaadid` (
+  `in_id` int(11) NOT NULL,
+  `maakond_id` int(11) NOT NULL,
+  UNIQUE KEY `in_id_2` (`in_id`),
+  KEY `in_id` (`in_id`,`maakond_id`),
+  KEY `maakond_id` (`maakond_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kandidaadid`
+--
+
+INSERT INTO `kandidaadid` (`in_id`, `maakond_id`) VALUES
+(1, 1),
+(8, 1),
+(88, 1),
+(91, 1),
+(9, 2),
+(90, 3);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `maakonnad`
 --
 
@@ -170,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `maakonnad` (
   `mk_id` int(2) NOT NULL DEFAULT '0',
   `nimi` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`mk_id`),
-  KEY `COL 1` (`mk_id`)
+  UNIQUE KEY `mk_id` (`mk_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -203,6 +221,13 @@ INSERT INTO `maakonnad` (`mk_id`, `nimi`) VALUES
 --
 ALTER TABLE `inimesed`
   ADD CONSTRAINT `inimesed_ibfk_1` FOREIGN KEY (`maakond`) REFERENCES `maakonnad` (`mk_id`);
+
+--
+-- Constraints for table `kandidaadid`
+--
+ALTER TABLE `kandidaadid`
+  ADD CONSTRAINT `kandidaadid_ibfk_2` FOREIGN KEY (`in_id`) REFERENCES `inimesed` (`in_id`),
+  ADD CONSTRAINT `kandidaadid_ibfk_1` FOREIGN KEY (`maakond_id`) REFERENCES `maakonnad` (`mk_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
