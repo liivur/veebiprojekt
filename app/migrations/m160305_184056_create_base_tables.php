@@ -16,13 +16,24 @@ class m160305_184056_create_base_tables extends Migration
             'candidacy_area' => $this->integer(),
             'vote_id' => $this->integer(),
             'is_admin' => $this->boolean()->defaultValue(0),
+            'username' => $this->string()->notNull(),
+            'password' => $this->string(),
         ]);
+
+        $this->createIndex('users-username-unique', 'users', 'username', true);
+
+        $this->execute("INSERT INTO users (id, name, email, is_admin, username, password) VALUES (1, 'admin', 'admin@example.com', 1, 'admin', SHA1('admin'))");
 
         $this->createTable('credentials', [
             'id' => $this->primaryKey(),
             'user_id' => $this->integer(),
+            'type' => $this->smallInteger()->unsigned(),
             'token' => $this->string(),
         ]);
+
+        $this->execute("INSERT INTO credentials (user_id, type, token) VALUES (1, 1, SHA1('admin'))");
+
+        $this->createIndex('credentials-user_id-type-unique', 'credentials', ['user_id', 'type'], true);
 
         $this->createTable('parties', [
             'id' => $this->primaryKey(),

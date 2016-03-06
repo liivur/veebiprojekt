@@ -9,12 +9,16 @@ use Yii;
  *
  * @property integer $id
  * @property integer $user_id
+ * @property integer $type
  * @property string $token
  *
  * @property Users $user
  */
 class Credentials extends \yii\db\ActiveRecord
 {
+    const AUTH_KEY = 1;
+    const PASSWORD_RESET = 1;
+
     /**
      * @inheritdoc
      */
@@ -29,7 +33,7 @@ class Credentials extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id'], 'integer'],
+            [['user_id', 'type'], 'integer'],
             [['token'], 'string', 'max' => 255]
         ];
     }
@@ -42,6 +46,7 @@ class Credentials extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'user_id' => 'User ID',
+            'type' => 'Type',
             'token' => 'Token',
         ];
     }
