@@ -15,6 +15,7 @@ use Yii;
  * @property integer $voting_area
  * @property integer $candidacy_area
  * @property integer $vote_id
+ * @property integer $is_admin
  *
  * @property Credentials[] $credentials
  * @property Areas $candidacyArea
@@ -39,7 +40,7 @@ class Users extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['party_id', 'voting_area', 'candidacy_area', 'vote_id'], 'integer'],
+            [['party_id', 'voting_area', 'candidacy_area', 'vote_id', 'is_admin'], 'integer'],
             [['name', 'email', 'code'], 'string', 'max' => 255]
         ];
     }
@@ -58,6 +59,7 @@ class Users extends \yii\db\ActiveRecord
             'voting_area' => 'Voting Area',
             'candidacy_area' => 'Candidacy Area',
             'vote_id' => 'Vote ID',
+            'is_admin' => 'Is Admin',
         ];
     }
 
