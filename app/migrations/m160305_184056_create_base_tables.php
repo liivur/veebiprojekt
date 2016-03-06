@@ -23,7 +23,8 @@ class m160305_184056_create_base_tables extends Migration
         $this->createIndex('users-username-unique', 'users', 'username', true);
 
         $this->execute("INSERT INTO users (id, name, email, is_admin, username, password) 
-            VALUES (1, 'admin', 'admin@example.com', 1, 'admin', SHA1('admin')), (2, 'user', 'user@example.com', 0, 'user', SHA1('user'))");
+            VALUES (1, 'admin', 'admin@example.com', 1, 'admin', '".Yii::$app->getSecurity()->generatePasswordHash('admin')."'), 
+            (2, 'user', 'user@example.com', 0, 'user', '".Yii::$app->getSecurity()->generatePasswordHash('user')."')");
 
         $this->createTable('credentials', [
             'id' => $this->primaryKey(),

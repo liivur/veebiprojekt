@@ -3,7 +3,6 @@
 namespace app\models\activerecord;
 
 use Yii;
-use yii\base\Security;
 use yii\web\IdentityInterface;
 
 /**
@@ -47,8 +46,10 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['party_id', 'voting_area', 'candidacy_area', 'vote_id', 'is_admin'], 'integer'],
-            [['username'], 'required'],
-            [['name', 'email', 'code', 'username', 'password'], 'string', 'max' => 255]
+            [['name', 'email', 'code', 'username', 'password'], 'string', 'max' => 255],
+            [['email'], 'email'],
+            [['email'], 'unique'],
+            [['username'], 'unique'],
         ];
     }
 
@@ -140,17 +141,17 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
 
     public function validatePassword($password)
     {
-        return $this->password === sha1($password);
+        return Yii::$app->getSecurity()->validatePassword($password, $this->password);
     }
 
     public function setPassword($password)
     {
-        $this->password = Security::generatePasswordHash($password);
+        $this->password = Yii::$app->getSecurity()->generatePasswordHash($password);
     }
 
     public function afterSave($insert, $changedAttributes)
     {
-        parent::afterSave($insert);
+        parent::afterSave($insert, $changedAttributes);
         if ($insert) {
             $this->_authKey = \Yii::$app->security->generateRandomString();
             $credential = new Credentials;

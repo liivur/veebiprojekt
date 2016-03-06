@@ -29,7 +29,9 @@ class Areas extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'string', 'max' => 255]
+            [['name'], 'string', 'max' => 255],
+            [['name'], 'required'],
+            [['name'], 'unique'],
         ];
     }
 
