@@ -148,7 +148,7 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
         $this->password = Security::generatePasswordHash($password);
     }
 
-    public function afterSave($insert)
+    public function afterSave($insert, $changedAttributes)
     {
         parent::afterSave($insert);
         if ($insert) {
