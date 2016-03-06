@@ -17,7 +17,6 @@ class LoginForm extends Model
 
     private $_user = false;
 
-
     /**
      * @return array the validation rules.
      */
@@ -30,6 +29,15 @@ class LoginForm extends Model
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'username' => 'Kasutaja nimi', 
+            'password' => 'Parool',
+            'rememberMe' => 'Jäta meelde',
         ];
     }
 

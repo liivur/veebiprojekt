@@ -11,26 +11,33 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
+    public $enableCsrfValidation = false;
+
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout', 'login', 'statistics', 'vote'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'statistics', 'vote'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+                        'actions' => ['login'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+            // 'verbs' => [
+            //     'class' => VerbFilter::className(),
+            //     'actions' => [
+            //         'logout' => ['post'],
+            //     ],
+            // ],
         ];
     }
 
@@ -62,6 +69,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
+
         return $this->render('login', [
             'model' => $model,
         ]);
@@ -87,8 +95,23 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionAbout()
+    public function actionVote()
     {
-        return $this->render('about');
+        return $this->render('vote');
+    }
+
+    public function actionStatistics()
+    {
+        return $this->render('statistics');
+    }
+
+    public function actionCandidates()
+    {
+        return $this->render('candidates');
+    }
+
+    public function actionSearch()
+    {
+        return $this->render('search-results');
     }
 }
