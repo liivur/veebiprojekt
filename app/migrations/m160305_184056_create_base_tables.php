@@ -22,7 +22,8 @@ class m160305_184056_create_base_tables extends Migration
 
         $this->createIndex('users-username-unique', 'users', 'username', true);
 
-        $this->execute("INSERT INTO users (id, name, email, is_admin, username, password) VALUES (1, 'admin', 'admin@example.com', 1, 'admin', SHA1('admin'))");
+        $this->execute("INSERT INTO users (id, name, email, is_admin, username, password) 
+            VALUES (1, 'admin', 'admin@example.com', 1, 'admin', SHA1('admin')), (2, 'user', 'user@example.com', 0, 'user', SHA1('user'))");
 
         $this->createTable('credentials', [
             'id' => $this->primaryKey(),
@@ -31,7 +32,7 @@ class m160305_184056_create_base_tables extends Migration
             'token' => $this->string(),
         ]);
 
-        $this->execute("INSERT INTO credentials (user_id, type, token) VALUES (1, 1, SHA1('admin'))");
+        $this->execute("INSERT INTO credentials (user_id, type, token) VALUES (1, 1, SHA1('admin')), (2, 1, SHA1('user'))");
 
         $this->createIndex('credentials-user_id-type-unique', 'credentials', ['user_id', 'type'], true);
 

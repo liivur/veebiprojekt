@@ -3,11 +3,12 @@
 namespace app\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\LoginForm;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
+use yii\web\Controller;
+use yii\web\UnauthorizedHttpException;
 
 class AdminController extends Controller
 {
@@ -26,6 +27,26 @@ class AdminController extends Controller
                 ],
             ],
         ];
+    }
+
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+        ];
+    }
+
+    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+            if (Yii::$app->user->identity->is_admin) {
+                return true;
+            }
+            throw new UnauthorizedHttpException('Pole piisavalt õigus', 401);
+        }
+        return false;
     }
 
     public function actionIndex()
