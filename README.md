@@ -5,6 +5,8 @@ Otsustasime projektiks valida E-hääletuse.
 Prototüübiks tegime html-mockupi. Mockupis on piiratud navigeerimisvõimalused. Peamistesse vaadetesse liikumine käib läbi menüü.
 Mockup asub http://web.zone.ee/veebiprojekt/
 
+Testkeskkonna url: http://dev.newtime.ee/veebiprojekt/
+
 Olemas on 3 tüüpi kasutajad: sisse logimata kasutaja, sisse logitud kasutaja ja admin.
 
 Sisse logimata kasutaja pääseb ligi kandidaatide (sealhulgas ka otsing) ja statistika (ehk hääletuse tulemuste) vaadetele.
