@@ -48,7 +48,7 @@ class Parties extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUsers()
+    public function getMembers()
     {
         return $this->hasMany(Users::className(), ['party_id' => 'id']);
     }
