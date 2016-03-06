@@ -15,6 +15,7 @@ class m160305_184056_create_base_tables extends Migration
             'voting_area' => $this->integer(),
             'candidacy_area' => $this->integer(),
             'vote_id' => $this->integer(),
+            'is_admin' => $this->boolean()->defaultValue(0),
         ]);
 
         $this->createTable('credentials', [
