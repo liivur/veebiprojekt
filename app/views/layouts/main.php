@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -36,9 +36,9 @@ IeAsset::register($this);
                 <ul class="menu list-unstyled">
                     <li class="menu-item">
                         <form action="<?php echo Url::to(['site/search']); ?>" class="search-form">
-                            <label>
+                            <label for="otsi">
                                 Otsi:
-                                <input type="text" name="q">
+                                <input id="otsi" type="text" name="q">
                             </label>
                             <button type="submit">Otsi</button>
                         </form>
@@ -52,13 +52,13 @@ IeAsset::register($this);
                         <li class="menu-item login-item">
                             <a href="#" class="js-login-btn">Logi sisse</a>
                             <form action="<?php echo Url::to(['site/login']); ?>" method="post" class="login-form js-login-form hidden">
-                                <label>
+                                <label for="loginnimi">
                                     Nimi:
-                                    <input type="text" name="LoginForm[username]">
+                                    <input id="loginnimi" type="text" name="LoginForm[username]">
                                 </label>
-                                <label>
+                                <label for="loginpassword">
                                     Parool:
-                                    <input type="password" name="LoginForm[password]">
+                                    <input id="loginpassword" type="password" name="LoginForm[password]">
                                 </label>
                                 <input type="hidden" name="LoginForm[rememberMe]" value="0">
                                 <label for="loginform-rememberme">
