@@ -2,13 +2,19 @@
 
 $params = require(__DIR__ . '/params.php');
 
+
 use \yii\web\Request;
 $baseUrl = str_replace('/app/web', '', (new Request)->getBaseUrl());
 //Yii::$app->language = 'en';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log',
+           [
+            'class' => 'app\components\LanguageSelector',
+            'supportedLanguages' => ['en', 'et'],
+        ],
+    ],
     'components' => [
 
         'i18n' => [

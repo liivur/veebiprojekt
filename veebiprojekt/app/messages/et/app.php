@@ -22,6 +22,7 @@ return [
 'login'=> 'logi sisse',
 'logout'=> 'logi välja',
 'search'=> 'otsi',
+'submit'=> 'vali',
 'chooselanguage', 'Inglise keeles',
 'wrong'=> 'vale kasutajanimi või parool',
 'systemmanagement'=> 'systeemihaldus',

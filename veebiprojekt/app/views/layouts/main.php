@@ -14,6 +14,7 @@ use yii\widgets\Breadcrumbs;
 
 AppAsset::register($this);
 IeAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -51,7 +52,14 @@ IeAsset::register($this);
 
 
                         <li class="menu-item">
-                        <?php  if(true){?>
+
+                        <?= Html::beginForm() ?>
+                        <?= Html::dropDownList('language', Yii::$app->language, ['en' => 'English', 'et' => 'Eesti']) ?>
+                        <?=Html::submitButton(Yii::t('app', 'submit')) ?>
+                        
+                        <?= Html::endForm() ?>
+                        <?php /*
+                         if(true){?>
                            
                             
                                 <?php echo 'In English'; 
@@ -63,7 +71,8 @@ IeAsset::register($this);
                             
                             <?php echo 'Eesti keeles'; ?>
                             </a>
-                            <?php  } ?>
+                            <?php  } 
+                            */?>
                         </li>
                         
                     <?php 
@@ -89,7 +98,8 @@ IeAsset::register($this);
                                 <div class="fb-login-button" data-max-rows="1" data-size="large" 
                                     data-show-faces="false" data-auto-logout-link="true"></div>
                             
-                        
+                                <div>
+
                          </form>
                         <?php
                     } else {

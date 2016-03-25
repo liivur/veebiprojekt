@@ -23,6 +23,7 @@ return [
 	'login'=> 'log in',
 	'logout'=> 'log out',
 	'search',=> 'search',
+	'submit'=> 'submit',
 	'chooselanguage'=> 'Eesti keeles',
 	'wrong'=> 'wrong username or password',
 	'systemmanagement'=> 'system management',
