@@ -5,6 +5,7 @@ return [
 'candidates'=> 'kandidaadid',
 'candidate'=> 'kandidaat',
 'parties'=> 'erakonnad',
+'people'=> 'inimesed',
 'statistics'=> 'statistika',
 'mustlogin'=> 'selle tegevuse jaoks pead sisse logima',
 'vote'=> 'hääleta',

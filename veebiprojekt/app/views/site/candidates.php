@@ -22,16 +22,16 @@ $command = $connection->createCommand('
 $usersRawSql = $command->queryAll();
 ?>
 
-<h1 class="middle">Kandidaadid</h1>
+<h1 class="middle"><?= Yii::t('app', 'candidates') ?></h1>
 <hr>
 <?php
-    echo '<h1>Erakonnad</h1>';
+    echo '<h1>' .Yii::t('app', 'parties').'</h1>';
     foreach ($partyCount as $party) {
         echo '<div class="col-md-4">';
         echo '<h3>'.$party['party_name'].' - '.$party['members'].'</h3>';
         echo '</div>';
     }
-    echo '<h1>Inimesed</h1>';
+    echo '<h1>'.Yii::t('app', 'people').'</h1>';
     echo '<div class="col-md-12">';
     foreach ($usersRawSql as $user) {
         echo '<h3>'.$user['user_name'].' - '.$user['party_name'].'</h3>';

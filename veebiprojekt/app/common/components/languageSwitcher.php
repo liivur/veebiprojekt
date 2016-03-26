@@ -15,10 +15,12 @@ use yii\base\Widget;
 use yii\bootstrap\ButtonDropdown;
 use yii\helpers\Url;
 use yii\web\Cookie;
- 
+ use app\web\Session;
+$session = Yii::$app->session;
+
 class languageSwitcher extends Widget
 {
-    /* ใส่ภาษาของคุณที่นี่ */
+    
     public $languages = [
         'en' => 'English',
         'et' => 'Eesti',
@@ -45,12 +47,19 @@ class languageSwitcher extends Widget
                     'name' => 'language',
                     'value' => $languageNew
                 ]));
+
             }
         }
         elseif($cookies->has('language'))
         {
             Yii::$app->language = $cookies->getValue('language');
+            
         }
+        else{
+            Yii::$app->language ='et';
+        }
+
+
  
     }
  
@@ -67,6 +76,7 @@ class languageSwitcher extends Widget
             $temp['url'] = Url::current(['language' => $code]);
             array_push($items, $temp);
         }
+
  
         echo ButtonDropdown::widget([
             'label' => $current,
@@ -74,6 +84,35 @@ class languageSwitcher extends Widget
                 'items' => $items,
             ],
         ]);
+
+        $languageCookie = new Cookie([
+    'name' => 'language',
+    'value' => $language,
+    'expire' => time() + 60 * 60 * 24 * 30, 
+]);
+     setcookie('language', $current, time() + 60 * 60 * 24 * 30);
+
+
+     $_SESSION['language'] = $current;
+  /*   echo ' cookie:';
+    echo $_COOKIE['language'];
+echo ' session:';
+    echo $_SESSION['language'] ;
+    echo ' current:';
+    echo $current;
+
+     /*
+     if (!isset($_COOKIE['language'])) {
+        setcookie('language', $language);
+    } 
+    */
+//    Yii::$app->response->    $cookies->getCookie('language', $language);
+//Yii::$app->response->cookies->add($languageCookie);
+/*$user = Yii::$app->user;
+$user->language = $language;
+$user->save();
+*/
     }
+
  
 }

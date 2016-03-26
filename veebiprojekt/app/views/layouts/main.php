@@ -12,12 +12,25 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\common\components\languageSwitcher;
-
+use app\web\Session;
 AppAsset::register($this);
 IeAsset::register($this);
-
+$session = Yii::$app->session;
 ?>
-<?php $this->beginPage() ?>
+<?php $this->beginPage();
+    $cookies = Yii::$app->response->cookies;
+    $session = Yii::$app->session;
+    $current = Yii::$app->language;
+    $language=$current;
+/*if(isset($_COOKIE['language'])) {
+        
+    $current=$_COOKIE['language'];
+    $language=$_COOKIE['language'];
+}
+ */?>
+
+
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -31,7 +44,59 @@ IeAsset::register($this);
 <?php $this->beginBody() ?>
     <header class="container header">
         <div class="row">
-          
+
+
+              <?php
+//echo phpinfo() ;
+/*
+    if(isset($_SESSION['language'])){
+        echo 'sessionlanguage:';
+        echo $_SESSION['language' ];
+         echo '   .';
+    }
+    elseif(!isset($_SESSION['language'])){
+       echo 'no language ';
+       //  echo $_SESSION['no language' ];
+    }
+
+    if (!isset($_COOKIE['language'])) {
+        echo 'no cookie';
+         echo '   .';
+}
+    if ($session->isActive){
+        echo 'activesession ';
+        echo '   .';
+}
+    elseif (!$session->isActive){
+        echo 'startingsession ';
+        $session = new Session;
+        $session->open();
+
+        if ($session->isActive){
+            echo ' sessionstarted ';
+        }
+}
+    ?>
+
+    <?php
+    
+    if (!isset($_COOKIE['language'])) {
+        setcookie('language', 'en');
+        echo ' setcookie';
+         echo '   .';
+    } 
+    elseif (isset($_COOKIE['language'])) {
+        
+        echo ' cookielanguage: ';
+        echo $cookies->getValue('language');
+        echo '   .';
+        echo $_COOKIE['language'];
+        echo '   .';
+        echo $language;
+
+    } */
+
+?>
            <div class="col-md-4">
                 <?php echo Html::a('<h1>'.Yii::$app->params['siteTitle'].'</h1>', Yii::$app->homeUrl, []);
                 ?>
@@ -39,9 +104,12 @@ IeAsset::register($this);
             <div class="col-md-8 menu-container">
                 <ul class="menu list-unstyled">
                     <li class="menu-item">
+
+
                         <form action="<?php echo Url::to(['site/search']); ?>" class="search-form">
                             <label for="otsi">
-                                Otsi:
+                                <?= Yii::t('app', 'search') ?>
+
                                 <input id="otsi" type="text" name="q">
                             </label>
                             <button type="submit"><?= Yii::t('app', 'search') ?></button>
@@ -52,9 +120,9 @@ IeAsset::register($this);
                     <li class="menu-item"><a href="<?php echo Url::to(['site/statistics']); ?>"><?= Yii::t('app', 'statistics') ?></a>
 
 
-                        <li class="menu-item">
-                            <?= languageSwitcher::Widget() ?>
-                        </li>
+                     <li class="menu-item">
+                         <?= languageSwitcher::Widget() ?>
+                    </li>
                         
                     <?php 
                     if (Yii::$app->user->isGuest) {

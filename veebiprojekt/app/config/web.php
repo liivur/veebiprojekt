@@ -2,19 +2,24 @@
 
 $params = require(__DIR__ . '/params.php');
 
-
+ use app\web\Session;
 use \yii\web\Request;
+
 $baseUrl = str_replace('/app/web', '', (new Request)->getBaseUrl());
-//Yii::$app->language = 'en';
+
+
+
+
+
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'sourceLanguage'=>'en',
-    'language' => 'et',
+    //'language' => 'et',
     'bootstrap' => [
         'log',
         'languageSwitcher',
-        //'supportedLanguages' => ['en', 'et'],
+       
     ],
     
 
@@ -24,7 +29,16 @@ $config = [
             'class' => 'app\common\components\languageSwitcher',
         ],
 
-    
+
+   'session' => array(
+        
+      'cookieParams' => array(
+         'lifetime' => 3600,
+      ),
+       
+   ),
+
+  
         'i18n' => [
             'translations' => [
                 'app*' => [
