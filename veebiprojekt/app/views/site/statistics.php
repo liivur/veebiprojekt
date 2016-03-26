@@ -1,18 +1,21 @@
-<h1 class="middle">Statistika</h1>
+<h1 class="middle"><?= Yii::t('app', 'statistics') ?></h1>
 <hr>
 <div class="row text-center">
 	<div class="col-md-3">
-		<h3>Hääled riigis</h3>
+	<h3><?= Yii::t('app', 'votes by country') ?>
+		</h3>
 
 	</div>
+
+	
 	<div class="col-md-3">
-		<h3>Hääled piirkonniti</h3>
+		<h3><?= Yii::t('app', 'votes by regions') ?></h3>
 	</div>
 	<div class="col-md-3">
-		<h3>Hääled parteide kaupa</h3>
+		<h3><?= Yii::t('app', 'votes by parties') ?></h3>
 	</div>
 	<div class="col-md-3">
-		<h3>Hääled kandidaatide kaupa</h3>
+		<h3><?= Yii::t('app', 'votes by candidates') ?></h3>
 	</div>
 </div>
 <div class="row text-center">

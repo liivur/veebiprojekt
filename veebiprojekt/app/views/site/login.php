@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 ?>
-<h1><?= Yii::t('app', 'mustlogin') ?></h1>
+<h1><?= Yii::t('app', 'must log in') ?></h1>
 
 <?php $form = ActiveForm::begin([
     'id' => 'login-form',
@@ -19,7 +19,8 @@ use yii\bootstrap\ActiveForm;
     ],
 ]); ?>
 
-    <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+   <span title=<?= Yii::t('app', 'username') ?>> 
+   <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?></span>
 
     <?= $form->field($model, 'password')->passwordInput() ?>
 

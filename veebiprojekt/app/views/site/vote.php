@@ -1,17 +1,18 @@
 <div  id="field">
 	<div class="row">
-		oled valinud kandidaadi XXX
-		<button type="candidacy">Tühista valik</button>
+	<?= Yii::t('app', 'you have chosen') ?>
+		
+		<button type="candidacy"><?= Yii::t('app', 'cancel') ?></button>
 	</div>
 		
 	<div class="row">	
-		<p>vali kandidaat</p>
+		<p><?= Yii::t('app', 'choose') ?></p>
 			<select name="party">
-				<option>kandidaat</option>
-				<option>kandidaat</option>
-				<option>kandidaat</option>
+				<option><?= Yii::t('app', 'candidate') ?></option>
+				<option><?= Yii::t('app', 'candidate') ?></option>
+				<option><?= Yii::t('app', 'candidate') ?></option>
 			</select>
 
-		<button type="candidacy">Valin</button>
+		<button type="candidacy"><?= Yii::t('app', 'submit') ?></button>
 	</div>
 </div>

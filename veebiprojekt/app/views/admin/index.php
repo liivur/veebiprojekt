@@ -16,13 +16,13 @@ $areas = Areas::find()->all();
 ?>
 <div class="row">
 	<div class="col-md-2">
-		<button class="js-form-toggle" data-target=".js-add-user-form">Lisa kasutaja</button>
+		<button class="js-form-toggle" data-target=".js-add-user-form"><?= Yii::t('app', 'add user') ?></button>
 	</div>
 	<div class="col-md-2">
-		<button class="js-form-toggle" data-target=".js-add-party-form">Lisa partei</button>
+		<button class="js-form-toggle" data-target=".js-add-party-form"><?= Yii::t('app', 'add party') ?></button>
 	</div>
 	<div class="col-md-2">
-		<button class="js-form-toggle" data-target=".js-add-area-form">Lisa piirkond</button>
+		<button class="js-form-toggle" data-target=".js-add-area-form"><?= Yii::t('app', 'add region') ?></button>
 	</div>
 </div>
 <div class="row js-forms admin-forms" id="field">

@@ -48,7 +48,7 @@ $session = Yii::$app->session;
 
               <?php
 //echo phpinfo() ;
-/*
+/* ma ei tea, misk session ära katkeb ja keel jälle tagasi läheb
     if(isset($_SESSION['language'])){
         echo 'sessionlanguage:';
         echo $_SESSION['language' ];
