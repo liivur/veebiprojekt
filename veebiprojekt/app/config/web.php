@@ -9,14 +9,22 @@ $baseUrl = str_replace('/app/web', '', (new Request)->getBaseUrl());
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log',
-           [
-            'class' => 'app\components\LanguageSelector',
-            'supportedLanguages' => ['en', 'et'],
-        ],
+    'sourceLanguage'=>'en',
+    'language' => 'et',
+    'bootstrap' => [
+        'log',
+        'languageSwitcher',
+        //'supportedLanguages' => ['en', 'et'],
     ],
+    
+
     'components' => [
 
+        'languageSwitcher' => [
+            'class' => 'app\common\components\languageSwitcher',
+        ],
+
+    
         'i18n' => [
             'translations' => [
                 'app*' => [
@@ -76,8 +84,7 @@ $config = [
         
     ],
     'params' => $params,
-    'sourceLanguage'=>'en',
-    'language' => 'et',
+
 ];
 
 if (YII_ENV_DEV) {

@@ -14,7 +14,7 @@ echo Yii::$app->formatter->asDate('2015-01-15', 'long');
 
 
     <div class="col-md-4">
-    
+  
         <p><?= Yii::t('app', 'candidate') ?></p>
         <p><?= Yii::t('app', 'candidate') ?></p>
         <p><?= Yii::t('app', 'candidate') ?></p>

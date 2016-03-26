@@ -11,6 +11,7 @@ use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
+use app\common\components\languageSwitcher;
 
 AppAsset::register($this);
 IeAsset::register($this);
@@ -52,27 +53,7 @@ IeAsset::register($this);
 
 
                         <li class="menu-item">
-
-                        <?= Html::beginForm() ?>
-                        <?= Html::dropDownList('language', Yii::$app->language, ['en' => 'English', 'et' => 'Eesti']) ?>
-                        <?=Html::submitButton(Yii::t('app', 'submit')) ?>
-                        
-                        <?= Html::endForm() ?>
-                        <?php /*
-                         if(true){?>
-                           
-                            
-                                <?php echo 'In English'; 
-                                ?>
-                                
-                            
-                        
-                        <?php  }else{ ?>
-                            
-                            <?php echo 'Eesti keeles'; ?>
-                            </a>
-                            <?php  } 
-                            */?>
+                            <?= languageSwitcher::Widget() ?>
                         </li>
                         
                     <?php 
