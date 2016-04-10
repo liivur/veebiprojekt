@@ -72,9 +72,9 @@ IeAsset::register($this);
                                     <input id="loginpassword" type="password" name="LoginForm[password]">
                                 </label>
                                 <input type="hidden" name="LoginForm[rememberMe]" value="0">
-                                <label for="loginform-rememberme">
+                                <label for="loginform-rememberme-dropdown">
                                     Jäta meelde
-                                    <input type="checkbox" id="loginform-rememberme" name="LoginForm[rememberMe]" value="1" checked=""> 
+                                    <input type="checkbox" id="loginform-rememberme-dropdown" name="LoginForm[rememberMe]" value="1" checked=""> 
                                 </label>
                                 <button class="button" type="submit">Logi sisse</button>
                                 <div class="fb-login-button" data-max-rows="1" data-size="large" 

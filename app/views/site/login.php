@@ -20,10 +20,9 @@ $this->title = Yii::t('app', 'login');
     ],
 ]); ?>
 
-   <span title=<?= Yii::t('app', 'username') ?>> 
-   <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?></span>
+    <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'title' => Yii::t('app', 'username')]) ?>
 
-    <?= $form->field($model, 'password')->passwordInput() ?>
+    <?= $form->field($model, 'password')->passwordInput(['title' => Yii::t('app', 'password')]) ?>
 
     <?= $form->field($model, 'rememberMe')->checkbox([
         'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
@@ -36,38 +35,3 @@ $this->title = Yii::t('app', 'login');
     </div>
 
 <?php ActiveForm::end(); ?>
-
-
-<?php
-/*
-use yii\helpers\Url;
-
-?>
-Selle tegevuse jaoks pead sisse logima:
-<form action="<?php echo Url::to(['site/login']); ?>" method="post" class="login-form">
-    <div>
-        <label>
-            Nimi:
-            <input type="text" name="LoginForm[username]">
-        </label>
-    </div>
-    <div>
-    <label>
-        Parool:
-        <input type="password" name="LoginForm[password]">
-    </label>
-    </div>
-    <div>
-        <input type="hidden" name="LoginForm[rememberMe]" value="0">
-        <label for="loginform-rememberme">
-            Jäta meelde
-        </label>
-        <input type="checkbox" id="loginform-rememberme" name="LoginForm[rememberMe]" value="1" checked=""> 
-    </div>
-    <button class="button" type="submit">Logi sisse</button>
-    <div class="fb-login-button" data-max-rows="1" data-size="large" 
-        data-show-faces="false" data-auto-logout-link="true"></div>
-</form>
-
-<?php
-*/
