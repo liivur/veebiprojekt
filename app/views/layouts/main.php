@@ -82,7 +82,8 @@ IeAsset::register($this);
                             
                                 <div>
 
-                         </form>
+                            </form>
+                        </li>
                         <?php
                     } else {
                         if (Yii::$app->user->identity->is_admin) {
