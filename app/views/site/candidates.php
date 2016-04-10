@@ -2,6 +2,8 @@
 
 use app\models\activerecord\Parties;
 
+$this->title = Yii::t('app', 'candidates');
+
 $parties = Parties::find()->with('members')->all();
 ?>
 

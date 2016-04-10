@@ -1,3 +1,7 @@
+<?php
+$this->title = Yii::t('app', 'search');
+?>
+
 
 <h1><?= Yii::t('app', 'search') ?></h1>
 <form class="row">

@@ -1,3 +1,8 @@
+<?php
+$this->title = Yii::$app->params['siteTitle'] . ' - '. Yii::t('app', 'welcome');
+?>
+
+
 <ul class="menu list-unstyled">
 	<div class="row">
 		<div class="col-md-3">

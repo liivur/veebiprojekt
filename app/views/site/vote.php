@@ -1,3 +1,7 @@
+<?php
+$this->title = Yii::t('app', 'vote');
+?>
+
 <div  id="field">
 	<div class="row">
 	<?= Yii::t('app', 'you have chosen') ?>

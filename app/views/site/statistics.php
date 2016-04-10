@@ -1,3 +1,7 @@
+<?php
+$this->title = Yii::t('app', 'statistics');
+?>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.js"></script>
 <script>window.Chart || document.write('<script src="<?php echo Yii::$app->homeUrl; ?>js/vendor/Chart.js">\x3C/script>')</script>
 

@@ -7,6 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
+$this->title = Yii::t('app', 'login');
 ?>
 <h1><?= Yii::t('app', 'must log in') ?></h1>
 
