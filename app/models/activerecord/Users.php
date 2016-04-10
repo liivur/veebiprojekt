@@ -88,11 +88,16 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
      * Finds an identity by the given token.
      *
      * @param string $token the token to be looked for
+     * @param integer $type the type of the token
      * @return IdentityInterface|null the identity object that matches the given token.
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        $credential = Credentials::find(['token' => $token])->with('user')->one();
+        if (!$type) {
+            $type = Credentials::AUTH_KEY;
+        }
+        $query = Credentials::find()->where(['token' => $token, 'type' => $type])->with('user');
+        $credential = Credentials::find()->where(['token' => $token, 'type' => $type])->with('user')->one();
         if ($credential && $credential->user) {
             return $credential->user;
         }

@@ -4,11 +4,13 @@
 namespace app\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
+use app\common\classes\CurlHandler;
 use app\models\ContactForm;
+use app\models\LoginForm;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
+use yii\helpers\Url;
+use yii\web\Controller;
 
 class SiteController extends Controller
 {
@@ -19,10 +21,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'login', 'vote'],
+                'only' => ['logout', 'login', 'vote', 'profile'],
                 'rules' => [
                     [
-                        'actions' => ['logout', 'vote'],
+                        'actions' => ['logout', 'vote', 'profile'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -94,6 +96,11 @@ class SiteController extends Controller
         return $this->render('contact', [
             'model' => $model,
         ]);
+    }
+
+    public function actionProfile()
+    {
+        return $this->render('profile');
     }
 
     public function actionVote()

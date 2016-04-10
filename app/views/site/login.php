@@ -4,8 +4,9 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\LoginForm */
 
-use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 $this->title = Yii::t('app', 'login');
 ?>
@@ -33,5 +34,13 @@ $this->title = Yii::t('app', 'login');
             <?= Html::submitButton('Logi sisse', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
         </div>
     </div>
-
+    <?php 
+    $error = Yii::$app->session->getFlash('noSuchUser'); 
+    if ($error) {
+        echo '<div class="error">'.Yii::t('app', 'no such user').'</div>';
+    }
+    ?>
+    <a href="https://www.facebook.com/dialog/oauth?client_id=201017283615903&redirect_uri=<?php echo Url::to(['facebook/login'], true); ?>" class="fb-login-button btn-facebook">
+        <?php echo Yii::t('app', 'login with facebook'); ?>
+    </a>
 <?php ActiveForm::end(); ?>

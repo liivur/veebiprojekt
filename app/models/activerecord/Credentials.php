@@ -16,8 +16,9 @@ use Yii;
  */
 class Credentials extends \yii\db\ActiveRecord
 {
+    const PASSWORD_RESET = 0;
     const AUTH_KEY = 1;
-    const PASSWORD_RESET = 1;
+    const FACEBOOK = 2;
 
     /**
      * @inheritdoc

@@ -50,11 +50,10 @@ body{
 
 .menu {
 	text-align: right;
-	height: 69px;
-	line-height: 69px;
 }
 
 .menu .menu-item {
+	margin-top: 20px;
 	display: inline-block;
 	vertical-align: middle;
 }

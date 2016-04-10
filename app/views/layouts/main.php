@@ -27,14 +27,15 @@ IeAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
-<?php $this->beginBody() ?>
+	<?php $this->beginBody() ?>
+
     <header class="container header">
         <div class="row">
-           <div class="col-md-4">
+           <div class="col-sm-4 col-md-3">
                 <?php echo Html::a('<h1>'.Yii::$app->params['siteTitle'].'</h1>', Yii::$app->homeUrl, []);
                 ?>
             </div>
-            <div class="col-md-8 menu-container">
+            <div class="col-sm-8 col-md-9 menu-container">
                 <ul class="menu list-unstyled">
                     <li class="menu-item">
 
@@ -77,8 +78,9 @@ IeAsset::register($this);
                                     <input type="checkbox" id="loginform-rememberme-dropdown" name="LoginForm[rememberMe]" value="1" checked=""> 
                                 </label>
                                 <button class="button" type="submit">Logi sisse</button>
-                                <div class="fb-login-button" data-max-rows="1" data-size="large" 
-                                    data-show-faces="false" data-auto-logout-link="true"></div>
+                                <a href="https://www.facebook.com/dialog/oauth?client_id=201017283615903&redirect_uri=<?php echo Url::to(['facebook/login'], true); ?>" class="fb-login-button btn-facebook">
+                                	<?php echo Yii::t('app', 'login with facebook'); ?>
+                                </a>
                             </form>
                         </li>
                         <?php
@@ -86,6 +88,7 @@ IeAsset::register($this);
                         if (Yii::$app->user->identity->is_admin) {
                             echo '<li class="menu-item"><a href="'.Url::to(['admin/index']).'"> '.Yii::t('app', 'systemmanagement').'</a></li>';
                         }
+                    	echo '<li class="menu-item"><a href="'.Url::to(['site/profile']).'">'.Yii::t('app', 'profile').'</a></li>';
                         echo '<li class="menu-item"><a href="'.Url::to(['site/logout']).'">'.Yii::t('app', 'logout').'</a></li>';
                     }
                     ?>
