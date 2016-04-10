@@ -94,9 +94,9 @@ IeAsset::register($this);
             </div>
         </div>
     </header>
-    <section class="content container">
+    <div class="content container">
         <?= $content ?>
-    </section>
+    </div>
 <?php $this->endBody() ?>
 </body>
 </html>
