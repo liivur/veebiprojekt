@@ -79,9 +79,6 @@ IeAsset::register($this);
                                 <button class="button" type="submit">Logi sisse</button>
                                 <div class="fb-login-button" data-max-rows="1" data-size="large" 
                                     data-show-faces="false" data-auto-logout-link="true"></div>
-                            
-                                </div>
-
                             </form>
                         </li>
                         <?php
