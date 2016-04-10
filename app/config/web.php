@@ -2,7 +2,6 @@
 
 $params = require(__DIR__ . '/params.php');
 
- use app\web\Session;
 use \yii\web\Request;
 
 $baseUrl = str_replace('/app/web', '', (new Request)->getBaseUrl());
@@ -15,7 +14,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'sourceLanguage'=>'en',
-    //'language' => 'et',
+    'language' => 'et',
     'bootstrap' => [
         'log',
         'languageSwitcher',

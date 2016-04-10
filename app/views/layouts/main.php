@@ -15,21 +15,7 @@ use app\common\components\languageSwitcher;
 use app\web\Session;
 AppAsset::register($this);
 IeAsset::register($this);
-$session = Yii::$app->session;
 ?>
-<?php $this->beginPage();
-    $cookies = Yii::$app->response->cookies;
-    $session = Yii::$app->session;
-    $current = Yii::$app->language;
-    $language=$current;
-/*if(isset($_COOKIE['language'])) {
-        
-    $current=$_COOKIE['language'];
-    $language=$_COOKIE['language'];
-}
- */?>
-
-
 
 <!DOCTYPE html>
 <html >
@@ -44,59 +30,6 @@ $session = Yii::$app->session;
 <?php $this->beginBody() ?>
     <header class="container header">
         <div class="row">
-
-
-              <?php
-//echo phpinfo() ;
-/* ma ei tea, misk session ära katkeb ja keel jälle tagasi läheb
-    if(isset($_SESSION['language'])){
-        echo 'sessionlanguage:';
-        echo $_SESSION['language' ];
-         echo '   .';
-    }
-    elseif(!isset($_SESSION['language'])){
-       echo 'no language ';
-       //  echo $_SESSION['no language' ];
-    }
-
-    if (!isset($_COOKIE['language'])) {
-        echo 'no cookie';
-         echo '   .';
-}
-    if ($session->isActive){
-        echo 'activesession ';
-        echo '   .';
-}
-    elseif (!$session->isActive){
-        echo 'startingsession ';
-        $session = new Session;
-        $session->open();
-
-        if ($session->isActive){
-            echo ' sessionstarted ';
-        }
-}
-    ?>
-
-    <?php
-    
-    if (!isset($_COOKIE['language'])) {
-        setcookie('language', 'en');
-        echo ' setcookie';
-         echo '   .';
-    } 
-    elseif (isset($_COOKIE['language'])) {
-        
-        echo ' cookielanguage: ';
-        echo $cookies->getValue('language');
-        echo '   .';
-        echo $_COOKIE['language'];
-        echo '   .';
-        echo $language;
-
-    } */
-
-?>
            <div class="col-md-4">
                 <?php echo Html::a('<h1>'.Yii::$app->params['siteTitle'].'</h1>', Yii::$app->homeUrl, []);
                 ?>
