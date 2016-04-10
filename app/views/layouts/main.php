@@ -50,7 +50,7 @@ IeAsset::register($this);
                     </li>
                     <li class="menu-item"><a href="<?php echo Url::to(['site/vote']); ?>"><?= Yii::t('app', 'vote') ?></a></li>
                     <li class="menu-item"><a href="<?php echo Url::to(['site/candidates']); ?>"><?= Yii::t('app', 'candidates') ?></a></li>
-                    <li class="menu-item"><a href="<?php echo Url::to(['site/statistics']); ?>"><?= Yii::t('app', 'statistics') ?></a>
+                    <li class="menu-item"><a href="<?php echo Url::to(['site/statistics']); ?>"><?= Yii::t('app', 'statistics') ?></a></li>
 
 
                      <li class="menu-item">
