@@ -90,7 +90,6 @@ $total = 33443;
 </div>
 
 <script>
-	console.log('asd');
 	var data = [
 	    {
 	        value: parseInt("<?php echo $voted; ?>"),
@@ -105,7 +104,6 @@ $total = 33443;
 	        label: "<?php echo Yii::t('app', 'not voted'); ?>"
 	    }
 	];
-	console.log(data);
 	var ctx = document.getElementById("votedChart").getContext("2d");
 	var myPieChart = new Chart(ctx).Pie(data);
-</script
+</script>
