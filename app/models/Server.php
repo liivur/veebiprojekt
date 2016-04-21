@@ -7,7 +7,7 @@ namespace app\models;
 set_time_limit(0);
 
 $data_source_file = 'data.txt';
-// main loop
+
 while (true) {
     
     $last_ajax_call = isset($_GET['timestamp']) ? (int)$_GET['timestamp'] : null;
