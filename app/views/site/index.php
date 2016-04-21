@@ -2,12 +2,18 @@
 
 /* @var $this yii\web\View */
 use app\web\Session;
+
 $this->title = Yii::$app->params['siteTitle'];
 
 
-echo Yii::$app->formatter->asDate('2015-01-15', 'long');
+
 
 ?>
+
+            <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="client.js"></script>
+                <h2>Teade:</h2>
+        <div id="response">
 
 <div class="row" id="field">
 
