@@ -1,9 +1,11 @@
 <?php
 
 /* @var $this yii\web\View */
-use app\web\Session;
 use app\assets\MessageAsset;
+use app\web\Session;
 use yii\helpers\Html;
+use yii\helpers\Url;
+$this->registerJs('var requestUrl = "'.Url::to(['site/long-poll']).'"',  \yii\web\View::POS_HEAD);
 MessageAsset::register($this);
 $this->title = Yii::$app->params['siteTitle'];
 

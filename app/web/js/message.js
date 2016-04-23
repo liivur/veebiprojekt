@@ -5,7 +5,7 @@ function getContent(timestamp)
     $.ajax(
         {
             type: 'GET',
-            Url::to(['site/app/models/Server.php']),
+            url: requestUrl,
             //url: 'site/app/models/Server.php',
             data: queryString,
             success: function(data){
