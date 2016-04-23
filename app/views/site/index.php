@@ -2,7 +2,9 @@
 
 /* @var $this yii\web\View */
 use app\web\Session;
-
+use app\assets\MessageAsset;
+use yii\helpers\Html;
+MessageAsset::register($this);
 $this->title = Yii::$app->params['siteTitle'];
 
 
@@ -10,10 +12,13 @@ $this->title = Yii::$app->params['siteTitle'];
 
 ?>
 
-            <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-        <script type="text/javascript" src="client.js"></script>
-                <h2>Teade:</h2>
-        <div id="response">
+    <h2>Teade:</h2>   
+<?php //siin peaks välja printima  
+
+ ?>
+<div id="message"></div>
+            
+      
 
 <div class="row" id="field">
 
@@ -76,3 +81,4 @@ $this->title = Yii::$app->params['siteTitle'];
         <p><?= Yii::t('app', 'candidate') ?></p>  
     </div>
 </div>
+

@@ -122,6 +122,10 @@ class SiteController extends Controller
     {
         return $this->render('search-results');
     }
+        public function actionMessage()
+    {
+        return $this->render('index');
+    }
 
 
 }
