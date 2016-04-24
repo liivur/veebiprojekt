@@ -1,12 +1,10 @@
 <?php
 
-return [
+return array_merge([
     'adminEmail' => 'admin@example.com',
     'siteTitle' => 'E-hääletus',
     'languages'=>[
     	'en'=>'English',
     	'et'=>'Eesti',
     ],
-    'appSecret' => '3269e742dab6faf514274b98e61fccdc',
-    'appId' => '201017283615903',
-];
+], require(__DIR__ . '/secret.php'));

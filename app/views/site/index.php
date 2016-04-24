@@ -14,13 +14,12 @@ $this->title = Yii::$app->params['siteTitle'];
 
 ?>
 
-    <h2>Teade:</h2>   
-<?php //siin peaks välja printima  
-
- ?>
+<h2>Teade:</h2>   
 <div id="message"></div>
-            
-      
+<form method="POST" action="<?php echo Url::to(['site/set-message']); ?>" id="js-set-message-form">
+    <input name="message">
+    <button><?php echo Yii::t('app', 'send') ?></button>
+</form>
 
 <div class="row" id="field">
 

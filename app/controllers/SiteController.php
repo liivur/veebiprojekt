@@ -21,10 +21,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'login', 'vote', 'profile'],
+                'only' => ['logout', 'login', 'vote', 'profile', 'set-message'],
                 'rules' => [
                     [
-                        'actions' => ['logout', 'vote', 'profile'],
+                        'actions' => ['logout', 'vote', 'profile', 'set-message'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -123,22 +123,29 @@ class SiteController extends Controller
         return $this->render('search-results');
     }
 
-    public function actionMessage()
+    public function actionSetMessage()
     {
-        return $this->render('index');
+        $message = Yii::$app->request->post('message');
+        if ($message) {
+            file_put_contents(Yii::getAlias('@runtime/data.txt'), $message);
+        }
+        return \yii\helpers\Json::encode(array());
     }
 
     public function actionLongPoll()
     {
         set_time_limit(0);
+        session_write_close();
 
         $data_source_file = Yii::getAlias('@runtime/data.txt');
         if (!file_exists($data_source_file)) {
             fclose(fopen($data_source_file, 'w'));
         }
 
-        while (true) {
-            
+        $status = [];
+
+        while (connection_status() == CONNECTION_NORMAL) {
+            $status[] = connection_status();
             $last_ajax_call = isset($_GET['timestamp']) ? (int)$_GET['timestamp'] : null;
            
             clearstatcache();
@@ -150,17 +157,15 @@ class SiteController extends Controller
               
                 $result = array(
                     'data_from_file' => $data,
-                    'timestamp' => $last_change_in_data_file
+                    'timestamp' => $last_change_in_data_file,
+                    'status' => $status
                 );
                 
                 $json = json_encode($result);
                 echo $json;
-                
                 break;
             } else {
-                
                 sleep( 1 );
-                continue;
             } 
         }
     }

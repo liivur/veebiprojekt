@@ -28,3 +28,6 @@ phpunit.phar
 
 #db config
 db.php
+
+#secret config
+secret.php
